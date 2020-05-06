@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+  <p>
+    <strong>title:</strong>
+    <%= @book.title%>
+  </p>
+  <p>
+    <strong>body:</strong>
+    <%= @book.body %>
+  </p>
+  <%= link_to" edit" ,edit_book_path(@book)%>
+  |
+  <%= link_to 'back',books_path%>
+</body>
+
+</html>
