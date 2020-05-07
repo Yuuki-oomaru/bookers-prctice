@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
 <body>
+  <%= flash[:notice] %>
   <p>
     <strong>title:</strong>
     <%= @book.title%>
@@ -14,9 +15,9 @@
     <strong>body:</strong>
     <%= @book.body %>
   </p>
-  <%= link_to" edit" ,edit_book_path(@book)%>
+  <%= link_to "edit" ,edit_book_path(@book) %>
   |
-  <%= link_to 'back',books_path%>
+  <%= link_to "back" ,books_path %>
 </body>
 
 </html>

@@ -1,39 +1,44 @@
 class BooksController < ApplicationController
   def index
-    @books=Book.all.order(created_at: :desc)
-    @book= Book.new
+    @books = Book.all
+    @book = Book.new
   end
 
   def show
-    @book=Book.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def new
+
   end
 
   def create
-    @book=Book.new(book_params)
+    @book = Book.new(book_params)
     if @book.save
-      flash[:notice] = "Successfully create!"
+      flash[:notice] = "successfully"
       redirect_to book_path(@book.id)
     else
-      books_path
+      @books = Book.all
+      render 'index'
     end
    end
 
   def edit
-    @book=Book.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def update
-    @book= Book.find(params[:id])
-    @book.update(book_params)
-    flash[:notice] = "Successfully create!"
-    redirect_to book_path(@book)
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
+     flash[:notice] = "successfully"
+     redirect_to book_path(@book)
+   else
+     render 'edit'
+   end
   end
 
   def destroy
-     book= Book.find(params[:id])
+     book = Book.find(params[:id])
      book.destroy
      redirect_to books_path
 
